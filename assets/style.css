@@ -1,0 +1,12 @@
+header{
+    display: flex;
+}
+
+.timer{
+    justify-content: right;
+    display: flex;
+}
+
+.questionAnswer{
+    visibility: hidden;
+}
