@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
+    <header>
+        <button class="highScore"><strong>High Score</strong></button>
+        <div class="timer">
+            <h3>time remaining:</h3>
+            <div class="timerCount">10</div>
+        </div>
+    </header>
+    <main>
+        <button class="start" id="Start"><strong>Start</strong></button>
+        <section class="questionAnswer" id="questionAnswer">
+        <h1 class="question" id="question">place holder stuff</h1>
+        <div class="answer choices">
+            <ul>
+                <li><button id="answer1">place holder stuff</button></li>
+                <li><button id="answer2">place holder stuff</button></li>
+                <li><button id="answer3">place holder stuff</button></li>
+                <li><button id="answer4">place holder stuff</button></li>
+            </ul>
+        </div>
+        <p id="correctIncorect"></p>
+        </section>
+    </main>
     <script src="./assets/main.js"></script>
 </body>
-</html>
