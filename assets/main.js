@@ -7,8 +7,11 @@ var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
 var timerCount = 60;
 var userAnswer;
+var finalScore = document.querySelector(".Score");
+var main = document.getElementById("main");
 var i = 0;
 var userInt;
+var timeInterval1;
 var question1 = {
     question: "Which of the following is NOT a primitive data type",
     answers: {
@@ -20,34 +23,34 @@ var question1 = {
     correctAnswer: "Function"
 }
 var question2 = {
-    question: "Question 2",
+    question: "Boolien stores what type of data",
     answers: {
-        a: "a",
-        b: "b",
-        c: "c",
-        d: "d",
+        a: "String",
+        b: "numbers",
+        c: "true/false",
+        d: "object",
     },
-    correctAnswer: "a"
+    correctAnswer: "true/false"
 }
 var question3 = {
-    question: "Question 3",
+    question: "functions are wrapped in which of the following",
     answers: {
-        a: "a",
-        b: "b",
-        c: "c",
-        d: "d",
+        a: "[  ]",
+        b: "{  }",
+        c: '"  "',
+        d: "(  )",
     },
-    correctAnswer: "a"
+    correctAnswer: "{ }"
 }
 var question4 = {
-    question: "Question 4",
+    question: "which of the following is the notation for is exactly equal to",
     answers: {
-        a: "a",
-        b: "b",
-        c: "c",
-        d: "d",
+        a: "==",
+        b: "||",
+        c: "!==",
+        d: "===",
     },
-    correctAnswer: "a"
+    correctAnswer: "==="
 }
 var question5 = {
     question: "Question 5",
@@ -73,24 +76,15 @@ var questions = [question1, question2, question3, question4, question5, question
 
 function startGame() {
     document.getElementById("Start").style.visibility = "hidden";
-    document.getElementById("answerChoices").style.visibility="visible";
-    // setTime();
+    document.getElementById("answerChoices").style.visibility = "visible";
+    setTime();
     setQuestion();
 }
 function setTime() {
-    var timeInterval1 = setInterval(function () {
+        timeInterval1 = setInterval(function () {
         timerCount--;
         timerCountEl.textContent = timerCount;
-
-        if (timerCount <= 0 || i === 5) {
-            clearInterval(timeInterval1);
-            if (timerCount < 0) {
-                timerCount = 0
-            }
-            document.getElementById("questionAnswer").style.visibility = "hidden";
-            userInt=prompt("Your Scoreed " + timerCount + " points. Please enter your initials");
-            console.log(userInt);
-        }
+        checkGame();
     }, 1000)
     return
 }
@@ -107,11 +101,15 @@ function answerCheck() {
         if (userAnswer === questions[i].correctAnswer) {
             document.getElementById("correctIncorect").textContent = "Correct✅";
             i++;
+            checkGame()
+            console.log(i);
         }
         else {
             document.getElementById("correctIncorect").textContent = "Incorect❌";
-            timerCount = timerCount - 10;
             i++;
+            timerCount = timerCount - 10;
+            console.log(i);
+            checkGame()
         }
         setQuestion();
     }
@@ -132,6 +130,17 @@ function storeAnswer3() {
 function storeAnswer4() {
     userAnswer = document.getElementById("answer4").textContent;
     answerCheck();
+}
+function checkGame(){
+    if (timerCount <= 0 || i === 5) {
+        clearInterval(timeInterval1);
+        if (timerCount < 0) {
+            timerCount = 0
+        }
+        main.remove();
+        document.getElementById("gameOver").style.visibility = "visible";
+        finalScore.textContent = "Final Score " +timerCount;
+    }
 }
 startButton.addEventListener("click", startGame);
 answer1El.addEventListener("click", storeAnswer1);

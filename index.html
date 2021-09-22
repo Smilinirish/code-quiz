@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="container flex">
-        <button class="highScore"><strong>High Score</strong></button>
+        <a class="highScore" href="highscore.html"><strong>High Score</strong></a>
         <div class="timer">
             <h3>Time remaining:</h3>
             <div class="timerCount"><strong>60</strong></div>
@@ -21,12 +21,12 @@
     </header>
     </div>
     <main>
-        <div class="main">
+        <div class="main" id="main">
         <button class="start" id="Start"><strong>Start</strong></button>
         <section class="questionAnswer" id="questionAnswer">
         <h1 class="question" id="question"></h1>
         <div id="answerChoices">
-            <ul>
+            <ul id="">
                 <li><button class=button id="answer1"><strong></strong></button></li>
                 <li><button class=button id="answer2"></button></li>
                 <li><button class=button id="answer3"></button></li>
@@ -35,6 +35,20 @@
         </div>
         <p id="correctIncorect"></p>
         </section>
+        </div>
+        <div class="gameOver" id="gameOver">
+            <section>
+                <h1>All Done!</h1>
+                <h2 class="Score">Final Score</h2>
+                <p>Please enter your intials</p>
+                <form action="">
+                    <input type="text" placeholder=" Initials" class="initials">
+                    <br>
+                    <br>
+                    <input type="submit" class="submit">
+                </form>
+                <br>
+            </section>
         </div>
     </main>
     <script src="./assets/main.js"></script>
