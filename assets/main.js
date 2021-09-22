@@ -1,9 +1,14 @@
 var startButton = document.querySelector(".start");
 var timerCountEl = document.querySelector(".timerCount");
 var questionEl = document.querySelector(".question");
-var answer1El = document.querySelector("answer1");
-var timerCount = 10;
-var timerCount2;
+var answer1El = document.querySelector("#answer1");
+var answer2El = document.querySelector("#answer2");
+var answer3El = document.querySelector("#answer3");
+var answer4El = document.querySelector("#answer4");
+var timerCount = 60;
+var userAnswer;
+var i = 0;
+var userInt;
 var question1 = {
     question: "Which of the following is NOT a primitive data type",
     answers: {
@@ -15,7 +20,7 @@ var question1 = {
     correctAnswer: "Function"
 }
 var question2 = {
-    question: "asdf",
+    question: "Question 2",
     answers: {
         a: "a",
         b: "b",
@@ -25,7 +30,7 @@ var question2 = {
     correctAnswer: "a"
 }
 var question3 = {
-    question: "asdf",
+    question: "Question 3",
     answers: {
         a: "a",
         b: "b",
@@ -35,7 +40,7 @@ var question3 = {
     correctAnswer: "a"
 }
 var question4 = {
-    question: "asdf",
+    question: "Question 4",
     answers: {
         a: "a",
         b: "b",
@@ -45,7 +50,7 @@ var question4 = {
     correctAnswer: "a"
 }
 var question5 = {
-    question: "asdf",
+    question: "Question 5",
     answers: {
         a: "a",
         b: "b",
@@ -55,7 +60,7 @@ var question5 = {
     correctAnswer: "a"
 }
 var question6 = {
-    question: "asdf",
+    question: "Question 6",
     answers: {
         a: "a",
         b: "b",
@@ -66,61 +71,69 @@ var question6 = {
 }
 var questions = [question1, question2, question3, question4, question5, question6];
 
-console.log()
-
-
-
 function startGame() {
-    timerCount = 10
-    SetPage();
-    // setTime();
+    document.getElementById("Start").style.visibility = "hidden";
+    setTime();
     setQuestion();
-    storeAnswer();
 }
-
-
 function setTime() {
     var timeInterval1 = setInterval(function () {
         timerCount--;
         timerCountEl.textContent = timerCount;
 
-        if (timerCount === 0) {
+        if (timerCount <= 0 || i === 5) {
             clearInterval(timeInterval1);
+            if (timerCount < 0) {
+                timerCount = 0
+            }
             document.getElementById("questionAnswer").style.visibility = "hidden";
-            prompt("Your Scoreed " + timerCount + " points. Please enter your initials");
+            userInt=prompt("Your Scoreed " + timerCount + " points. Please enter your initials");
+            console.log(userInt);
         }
     }, 1000)
+    return
 }
-function SetPage() {
-    document.getElementById("Start").style.visibility = "hidden";
-    document.getElementById("question").style.visibility = "visible";
-    document.getElementById("answer1").style.visibility = "visible";
-    document.getElementById("answer2").style.visibility = "visible";
-    document.getElementById("answer3").style.visibility = "visible";
-    document.getElementById("answer4").style.visibility = "visible";
-}
-
 function setQuestion() {
-    document.getElementById("question").textContent = question1.question;
-    document.getElementById("answer1").textContent = question1.answers.a;
-    document.getElementById("answer2").textContent = question1.answers.b;
-    document.getElementById("answer3").textContent = question1.answers.c;
-    document.getElementById("answer4").textContent = question1.answers.d;
+    document.getElementById("question").textContent = questions[i].question;
+    document.getElementById("answer1").textContent = questions[i].answers.a;
+    document.getElementById("answer2").textContent = questions[i].answers.b;
+    document.getElementById("answer3").textContent = questions[i].answers.c;
+    document.getElementById("answer4").textContent = questions[i].answers.d;
 }
+function answerCheck() {
+    if (i < 6) {
 
-function storeAnswer() {
-
+        if (userAnswer === questions[i].correctAnswer) {
+            document.getElementById("correctIncorect").textContent = "corect";
+            i++;
+        }
+        else {
+            document.getElementById("correctIncorect").textContent = "Incorect";
+            timerCount = timerCount - 10;
+            i++;
+        }
+        setQuestion();
+    }
+    return
 }
-
-// function answerCheck() {
-//     answer1El.addEventListener("click", function () {
-//         if (answer1El.textContent === question1.answers) {
-//             document.querySelector("correctIncorect").textContent = "correct"
-//         }
-//         else {
-//             document.querySelector("correctIncorect").textContent = "incorrect"
-//         }
-//     })
-// }
-
+function storeAnswer1() {
+    userAnswer = document.getElementById("answer1").textContent;
+    answerCheck();
+}
+function storeAnswer2() {
+    userAnswer = document.getElementById("answer2").textContent;
+    answerCheck();
+}
+function storeAnswer3() {
+    userAnswer = document.getElementById("answer3").textContent;
+    answerCheck();
+}
+function storeAnswer4() {
+    userAnswer = document.getElementById("answer4").textContent;
+    answerCheck();
+}
 startButton.addEventListener("click", startGame);
+answer1El.addEventListener("click", storeAnswer1);
+answer2El.addEventListener("click", storeAnswer2);
+answer3El.addEventListener("click", storeAnswer3);
+answer4El.addEventListener("click", storeAnswer4);
