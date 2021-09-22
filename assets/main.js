@@ -73,7 +73,8 @@ var questions = [question1, question2, question3, question4, question5, question
 
 function startGame() {
     document.getElementById("Start").style.visibility = "hidden";
-    setTime();
+    document.getElementById("answerChoices").style.visibility="visible";
+    // setTime();
     setQuestion();
 }
 function setTime() {
@@ -104,11 +105,11 @@ function answerCheck() {
     if (i < 6) {
 
         if (userAnswer === questions[i].correctAnswer) {
-            document.getElementById("correctIncorect").textContent = "corect";
+            document.getElementById("correctIncorect").textContent = "Correct✅";
             i++;
         }
         else {
-            document.getElementById("correctIncorect").textContent = "Incorect";
+            document.getElementById("correctIncorect").textContent = "Incorect❌";
             timerCount = timerCount - 10;
             i++;
         }

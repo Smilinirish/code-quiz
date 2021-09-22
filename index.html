@@ -12,26 +12,30 @@
 
 <body>
     <header>
+        <div class="container flex">
         <button class="highScore"><strong>High Score</strong></button>
         <div class="timer">
-            <h3>time remaining:</h3>
-            <div class="timerCount">60</div>
+            <h3>Time remaining:</h3>
+            <div class="timerCount"><strong>60</strong></div>
         </div>
     </header>
+    </div>
     <main>
+        <div class="main">
         <button class="start" id="Start"><strong>Start</strong></button>
         <section class="questionAnswer" id="questionAnswer">
         <h1 class="question" id="question"></h1>
-        <div class="answer choices">
+        <div id="answerChoices">
             <ul>
-                <li><button id="answer1"></button></li>
-                <li><button id="answer2"></button></li>
-                <li><button id="answer3"></button></li>
-                <li><button id="answer4"></button></li>
+                <li><button class=button id="answer1"><strong></strong></button></li>
+                <li><button class=button id="answer2"></button></li>
+                <li><button class=button id="answer3"></button></li>
+                <li><button class=button id="answer4"></button></li>
             </ul>
         </div>
         <p id="correctIncorect"></p>
         </section>
+        </div>
     </main>
     <script src="./assets/main.js"></script>
 </body>

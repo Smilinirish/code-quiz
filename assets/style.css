@@ -1,12 +1,119 @@
+p{
+    margin: 10px;
+  }
+
 header{
-    display: flex;
+    padding: 20px;
 }
 
-.timer{
-    justify-content: right;
+
+
+  .container{
+    max-height: 100vh;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+    justify-content: center;
     display: flex;
+  }
+  
+  .flex{
+      justify-content: space-between;
+      align-content: center;
+      height: 100%;
+      flex-wrap: wrap;
+  }
+
+  .start{
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: auto;
+  }
+
+  .timer{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: rgb(253, 0, 0);
+      color: white;
+      border-radius: 20px;
+      align-items: center;
+      justify-content: center;
+      width: 20vw;
+      min-width: 20vh;
+      border: 2px solid gray;
+      cursor: none;
+      
+  }
+  .main{
+    max-height: 100vh;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  li{
+    padding: 5px;
 }
 
-/* .questionAnswer{
+  .questionAnswer{
+    justify-content: center
+    ;
+  }
+
+.highScore{
+    background-color: rgb(10, 92, 224);
+    border-radius: 20vw;
+    width: 20vw;
+    height: 4vh;
+    min-width: 20vh;
+}
+.highScore:hover{
+    cursor: pointer;
+    background-color:rgba(10, 92, 224, 0.644) ;
+}
+
+.start{
+    background-color: green;
+    border-radius: 20px;
+    width: 20vw;
+    height: 4vh;
+    min-width: 10vh;
+}
+
+.start:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+.button{
+    border-radius: 20px;
+    width: 20vw;
+    height: 4vh;
+    min-width: 10vh;
+    background-color: grey;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.button:hover{
+    background-color: rgba(128, 128, 128, 0.438);
+    cursor: pointer;
+}
+
+#answerChoices{
     visibility: hidden;
-} */
+}
+
+.question{
+    font-size:xx-large;
+    padding: 10px 10px;
+}
+
+#correctIncorect{
+    font-size: 5vw;
+}
